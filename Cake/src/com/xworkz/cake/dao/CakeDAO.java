@@ -120,18 +120,18 @@ public class CakeDAO {
 		}
 	}
 
-	public boolean findById(Integer id) {
+	public CakeDTO findById(Integer id) {
 		for (int index = 0; index < dtos.length; index++) {
 			CakeDTO dto5 = dtos[index];
 			System.out.println("id is" + id);
-			if(dto5.getId().equals(id)) {
+			if (dto5 != null && dto5.getId().equals(id)) {
 				System.out.println("The cake id is found " + id);
-				return true;
+				break;
 			} else {
 				System.out.println("Con not find " + id + " in Cake");
 			}
 		}
-		return false;
+		return null;
 	}
 
 	public CakeDTO findByIdAndFlavour(Integer id, Flavour flavour) {
@@ -139,7 +139,7 @@ public class CakeDAO {
 			CakeDTO dto6 = dtos[index];
 			System.out.println("id is" + id);
 			System.out.println("flavour is" + flavour);
-			if (dto6.getId().equals(id) && (dto6.getFlavour().equals(flavour))) {
+			if (dto6 != null && dto6.getId().equals(id) && (dto6.getFlavour().equals(flavour))) {
 				System.out.println("The Cake is " + id + " and the Flavour is " + flavour);
 				break;
 			} else {
@@ -153,7 +153,7 @@ public class CakeDAO {
 		for (int index = 0; index < dtos.length; index++) {
 			CakeDTO dto7 = dtos[index];
 			System.out.println("Id is " + id);
-			if (dto7.getId().equals(id)) {
+			if (dto7 != null && dto7.getId().equals(id)) {
 				System.out.println("The Price for the given ID is " + dto7.getPrice());
 				return dto7.getPrice();
 			} else {
@@ -166,11 +166,11 @@ public class CakeDAO {
 	public Flavour findFlavourById(Integer id) {
 		for (int index = 0; index < dtos.length; index++) {
 			CakeDTO dto8 = dtos[index];
-			if (dto8.getId().equals(id)) {
-				System.out.println(" id is " +id);
+			if (dto8 != null && dto8.getId().equals(id)) {
+				System.out.println(" id is " + id);
 				return dto8.getFlavour();
 			} else {
-				System.out.println("con not find id"+id);
+				System.out.println("con not find id" + id);
 			}
 		}
 		return null;
@@ -191,27 +191,33 @@ public class CakeDAO {
 	}
 
 	public Double findByMaxPrice() {
-		double max = Double.MAX_VALUE;
-		CakeDTO tempCakeDTO = null;
+		double max = Double.MIN_VALUE;
+		// CakeDTO tempCakeDTO = null;
 		for (int index = 0; index < this.dtos.length; index++) {
 			CakeDTO dto10 = dtos[index];
-			double price = dto10.getPrice();
-			System.out.println("Maximum price is=" + price);
-			max = Math.max(max, price);
+			if (dto10 != null) {
+				double price = dto10.getPrice();
+				System.out.println("Maximum price is=" + price);
+				max = Math.max(max, price);
+			}
 		}
-		return max;
+			return max;
 
+		
 	}
 
 	public Double findByMinPrice() {
-		double min = 0;
-		CakeDTO tempCakeDTO = null;
+		double min = Double.MAX_VALUE;
+		//CakeDTO tempCakeDTO1 = null;
 		for (int index = 0; index < this.dtos.length; index++) {
 			CakeDTO dto11 = dtos[index];
+			if(dto11 != null ) {
 			double price = dto11.getPrice();
 			System.out.println("Minimum price is=" + price);
 			min = Math.min(min, price);
 		}
-		return null;
+		}
+		return min;
 	}
+	
 }
