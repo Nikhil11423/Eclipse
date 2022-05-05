@@ -192,7 +192,6 @@ public class CakeDAO {
 
 	public Double findByMaxPrice() {
 		double max = Double.MIN_VALUE;
-		// CakeDTO tempCakeDTO = null;
 		for (int index = 0; index < this.dtos.length; index++) {
 			CakeDTO dto10 = dtos[index];
 			if (dto10 != null) {
@@ -201,23 +200,22 @@ public class CakeDAO {
 				max = Math.max(max, price);
 			}
 		}
-			return max;
+		return max;
 
-		
 	}
 
 	public Double findByMinPrice() {
 		double min = Double.MAX_VALUE;
-		//CakeDTO tempCakeDTO1 = null;
+		// CakeDTO tempCakeDTO1 = null;
 		for (int index = 0; index < this.dtos.length; index++) {
 			CakeDTO dto11 = dtos[index];
-			if(dto11 != null ) {
-			double price = dto11.getPrice();
-			System.out.println("Minimum price is=" + price);
-			min = Math.min(min, price);
-		}
+			if (dto11 != null) {
+				double price = dto11.getPrice();
+				System.out.println("Minimum price is=" + price);
+				min = Math.min(min, price);
+			}
 		}
 		return min;
 	}
-	
+
 }
