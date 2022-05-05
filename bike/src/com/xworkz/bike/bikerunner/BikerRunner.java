@@ -1,7 +1,7 @@
 package com.xworkz.bike.bikerunner;
 
 import com.xworkz.bike.functions.AbstractBike;
-import com.xworkz.bike.functions.AbstractKtm;
+import com.xworkz.bike.functions.Ktm;
 
 public class BikerRunner {
 
