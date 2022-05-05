@@ -7,7 +7,7 @@ public class BikerRunner {
 
 	public static void main(String[] args) {
 
-		AbstractBike abstractBike = new AbstractKtm(140,7);
+		AbstractBike abstractBike = new Ktm(140,7);
 		abstractBike.bikeModels("Duke", 167850);
 		System.out.println(abstractBike.getName());
 		System.out.println(abstractBike.getPrice());
@@ -21,7 +21,7 @@ public class BikerRunner {
 	
 		System.out.println("***************************************");
 		
-		AbstractBike abstractBike1 = new AbstractKtm(180,5);
+		AbstractBike abstractBike1 = new Ktm(180,5);
 		abstractBike1.bikeModels("MT", 210000);
 		abstractBike1.getName();
 		abstractBike1.getPrice();
@@ -39,7 +39,7 @@ public class BikerRunner {
 		
 		System.out.println("****************************************");
          
-		AbstractBike abstractBike2 = new AbstractKtm(210,6);
+		AbstractBike abstractBike2 = new Ktm(210,6);
 		abstractBike2.bikeModels("Bulet", 150000);
 		System.out.println(abstractBike2.getName());
 		System.out.println(abstractBike2.getPrice());
