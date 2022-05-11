@@ -15,7 +15,7 @@ public class FurnitureDAO {
 			this.index++;
 			return true;
 		} else {
-			System.out.println("furniture is not added");
+			System.err.println("furniture is not added");
 			MemoryIsFullException memoryIsFullException = new MemoryIsFullException(
 					"Memory Space available is only " + this.furnituredto.length);
 			throw memoryIsFullException;
