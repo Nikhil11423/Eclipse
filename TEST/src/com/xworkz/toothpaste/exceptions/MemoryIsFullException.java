@@ -1,6 +1,6 @@
 package com.xworkz.toothpaste.exceptions;
 
-public class MemoryIsFullException extends RuntimeException {
+public class MemoryIsFullException extends Exception {
 
 	public MemoryIsFullException() {
 

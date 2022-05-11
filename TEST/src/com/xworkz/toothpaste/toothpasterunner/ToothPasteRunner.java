@@ -6,12 +6,13 @@ import com.xworkz.toothpaste.constants.Color;
 import com.xworkz.toothpaste.constants.QuantityInGms;
 import com.xworkz.toothpaste.dao.ToothPasteDAO;
 import com.xworkz.toothpaste.dto.ToothPasteDTO;
+import com.xworkz.toothpaste.exceptions.MemoryIsFullException;
 import com.xworkz.toothpaste.service.ToothPasteService;
 
 public class ToothPasteRunner {
 
 	public static void main(String[] args) {
-
+  try {
 		ToothPasteDTO paste = new ToothPasteDTO();
 		paste.setId(1);
 		paste.setBrand("Colgate");
@@ -23,9 +24,9 @@ public class ToothPasteRunner {
 		paste.setQuantityInGms(QuantityInGms.FIFTY_GMS);
 
 		ToothPasteDAO dao = new ToothPasteDAO();
-		boolean save = dao.save(paste);
-		System.out.println(paste);
-		System.out.println("**********************************************");
+		//boolean save = dao.save(paste);
+		//System.out.println(paste);
+		//System.out.println("**********************************************");
 
 		ToothPasteDTO paste1 = new ToothPasteDTO();
 		paste1.setId(2);
@@ -37,9 +38,9 @@ public class ToothPasteRunner {
 		paste1.setPrice(40d);
 		paste1.setQuantityInGms(QuantityInGms.HUNDRED_GMS);
 
-		save = dao.save(paste);
-		System.out.println(paste1);
-		System.out.println("**********************************************");
+		//save = dao.save(paste);
+		//System.out.println(paste1);
+		//System.out.println("**********************************************");
 
 		ToothPasteDTO paste2 = new ToothPasteDTO();
 		paste2.setId(3);
@@ -51,9 +52,9 @@ public class ToothPasteRunner {
 		paste2.setPrice(55d);
 		paste2.setQuantityInGms(QuantityInGms.TWOHUNDRED_GMS);
 
-		save = dao.save(paste);
-		System.out.println(paste2);
-		System.out.println("**********************************************");
+		//save = dao.save(paste);
+		//System.out.println(paste2);
+		//System.out.println("**********************************************");
 
 		ToothPasteDTO paste3 = new ToothPasteDTO();
 		paste3.setId(4);
@@ -65,9 +66,9 @@ public class ToothPasteRunner {
 		paste3.setPrice(80d);
 		paste3.setQuantityInGms(QuantityInGms.TWOFIFTY_GMS);
 
-		save = dao.save(paste);
-		System.out.println(paste3);
-		System.out.println("**********************************************");
+		//save = dao.save(paste);
+		//System.out.println(paste3);
+		//System.out.println("**********************************************");
 
 		ToothPasteDTO paste4 = new ToothPasteDTO();
 		paste4.setId(5);
@@ -79,32 +80,38 @@ public class ToothPasteRunner {
 		paste4.setPrice(120d);
 		paste4.setQuantityInGms(QuantityInGms.FIVEHUNDRED_GMS);
 
-		save = dao.save(paste);
-		System.out.println(paste4);
-		System.out.println("**********************************************");
-
-		ToothPasteDTO paste5 = new ToothPasteDTO();
-		paste5.setId(6);
-		paste5.setBrand("Oral_B");
-		paste5.setColor(Color.RED_GEL);
-		paste5.setMainIngradient("");
-		paste5.setMfgDate(LocalDate.of(2022, 10, 22));
-		paste5.setExpiryDate(LocalDate.of(2023, 9, 22));
-		paste5.setPrice(130d);
-		paste5.setQuantityInGms(QuantityInGms.FIVEHUNDRED_GMS);
-
-		// save = dao.save(paste);
-		// System.out.println(paste);
-		System.out.println("**********************************************");
+	
 
 		ToothPasteService service = new ToothPasteService();
+		boolean saved = service.validateAndSave(paste);
+		System.out.println(saved);
+		
 		service.validateAndSave(paste);
+		System.out.println(paste);
 		service.validateAndSave(paste1);
-		service.validateAndSave(paste2);
+		System.out.println(paste1);
+		service.validateAndSave(null);
+		System.out.println(paste2);
 		service.validateAndSave(paste3);
+		System.out.println(paste3);
 		service.validateAndSave(paste4);
-		service.validateAndSave(paste5);
-
+		System.out.println(paste4);
+		
+  }
+  catch(MemoryIsFullException e){
+	 
+	  System.out.println("c =" +e.fillInStackTrace());
+	  System.out.println("o =" +e.getCause());
+	  System.out.println("r =" +e.getMessage());
+	  System.out.println("e =" +e.getStackTrace());
+	  System.out.println("j =" +e.getSuppressed());
+	  System.out.println("a =" +e.hashCode());
+	  System.out.println("v =" +e.toString());
+	  System.out.println("a =" +e.getLocalizedMessage());
+	  System.out.println("p =" +e.getClass());
+	  System.out.println("r =" +e.initCause(null));
+	  
+  }
 	}
 
 }

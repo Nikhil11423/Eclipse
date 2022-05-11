@@ -7,7 +7,7 @@ public class ToothPasteDAO {
 	private ToothPasteDTO[] toothPasteDTO = new ToothPasteDTO[5];
 	private int index;
 
-	public boolean save(ToothPasteDTO dto) {
+	public boolean save(ToothPasteDTO dto) throws MemoryIsFullException {
 		if (this.index < this.toothPasteDTO.length) {
 			this.toothPasteDTO[index] = dto;
 			System.out.println("Toothpaste is added");
