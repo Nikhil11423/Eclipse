@@ -5,9 +5,11 @@ import java.time.LocalDate;
 
 import com.xwrokz.customer.constants.Gender;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -16,20 +18,15 @@ import lombok.ToString;
 @ToString
 @NonNull
 @NoArgsConstructor
+@AllArgsConstructor
 public class CustomerDTO implements Serializable {
-	@NonNull
+
 	private Integer id;
-	@NonNull
 	private String name;
-	@NonNull
 	private String email;
-	@NonNull
 	private LocalDate dob;
-	@NonNull
 	private Gender gender;
-	@NonNull
 	private String occupation;
-	@NonNull
 	private AddressDTO addressDTO;
 
 }
