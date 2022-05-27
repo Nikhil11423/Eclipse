@@ -13,4 +13,6 @@ public interface PowerConsumptionDAO {
 	void printDetails();
 
 	Optional<PowerConsumptionDTO> findByName(String name);
+
+
 }

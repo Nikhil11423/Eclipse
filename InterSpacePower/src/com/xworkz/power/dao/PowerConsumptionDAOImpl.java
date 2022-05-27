@@ -55,8 +55,7 @@ public class PowerConsumptionDAOImpl  implements PowerConsumptionDAO {
 			return Optional.empty();
 		}
 
-	    @Override
-		public void deleteByCustomerName(String name) {
+	    public void deleteByCustomerName(String name) {
 			for (int index = 0; index < dtos.length; index++) {
 				PowerConsumptionDTO power1 = dtos[index];
 				if (name.equals(power1.getCustomerName())) {
@@ -67,8 +66,7 @@ public class PowerConsumptionDAOImpl  implements PowerConsumptionDAO {
 
 		}
 
-	    @Override
-		public void deleteByDivision(String division) {
+	    public void deleteByDivision(String division) {
 			for (int index = 0; index < dtos.length; index++) {
 				PowerConsumptionDTO power1 = dtos[index];
 				if (division.equals(power1.getDivision())) {
@@ -79,8 +77,7 @@ public class PowerConsumptionDAOImpl  implements PowerConsumptionDAO {
 
 		}
 
-	    @Override
-		public Double updateMinChargeByDivision(String division, double min) {
+	    public Double updateMinChargeByDivision(String division, double min) {
 			for (int index = 0; index < dtos.length; index++) {
 				PowerConsumptionDTO power3 = dtos[index];
 				if (division.equals(power3.getDivision())) {
@@ -94,7 +91,7 @@ public class PowerConsumptionDAOImpl  implements PowerConsumptionDAO {
 
 		}
 
-	    @Override
+	   
 		public Double updateratePerUnitByDivision(String division, double newrate) {
 			for (int index = 0; index < dtos.length; index++) {
 				PowerConsumptionDTO power4 = dtos[index];
@@ -107,7 +104,7 @@ public class PowerConsumptionDAOImpl  implements PowerConsumptionDAO {
 			return null;
 		}
 
-	    @Override
+	    
 		public Optional<PowerConsumptionDTO[]> findByDivision(String division) {
 			for (int index = 0; index < dtos.length; index++) {
 				PowerConsumptionDTO power5 = dtos[index];
@@ -118,7 +115,7 @@ public class PowerConsumptionDAOImpl  implements PowerConsumptionDAO {
 			return null;
 		}
 
-		  @Override
+		  
 		public Optional<PowerConsumptionDTO> findByCustomerNameAndDivision(String name, String division) {
 			for (int index = 0; index < dtos.length; index++) {
 				PowerConsumptionDTO power6 = dtos[index];
@@ -129,7 +126,7 @@ public class PowerConsumptionDAOImpl  implements PowerConsumptionDAO {
 			return null;
 		}
 
-		@Override
+		
 		public Optional<Double> findRatePerUnitByDivision(String division) {
 			for (int index = 0; index < dtos.length; index++) {
 				PowerConsumptionDTO power7 = dtos[index];
@@ -141,7 +138,7 @@ public class PowerConsumptionDAOImpl  implements PowerConsumptionDAO {
 			return null;
 		}
 
-		@Override
+		
 		public Optional<Double> findDueAmountByCusomerName(String name) {
 			for (int index = 0; index < dtos.length; index++) {
 				PowerConsumptionDTO power8 = dtos[index];

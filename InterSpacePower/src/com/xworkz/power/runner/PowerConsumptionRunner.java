@@ -3,7 +3,7 @@ package com.xworkz.power.runner;
 import java.time.LocalDate;
 import java.util.Optional;
 
-import com.xworkz.power.dao.PowerComsumptionDAOImpl;
+import com.xworkz.power.dao.PowerConsumptionDAOImpl;
 import com.xworkz.power.dto.PowerConsumptionDTO;
 
 public class PowerConsumptionRunner {
@@ -21,7 +21,7 @@ public class PowerConsumptionRunner {
 		PowerConsumptionDTO power5 = new PowerConsumptionDTO(5, 120D, 8d, LocalDate.of(2022, 05, 25), 80D, "Mr.Kiran",
 				"GESCOM");
 
-		PowerComsumptionDAOImpl saved = new PowerComsumptionDAOImpl();
+		PowerConsumptionDAOImpl saved = new PowerConsumptionDAOImpl();
 		saved.save(power1);
 		saved.save(power2);
 		saved.save(power3);

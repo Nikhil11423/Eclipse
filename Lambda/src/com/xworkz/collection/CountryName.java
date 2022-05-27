@@ -220,7 +220,11 @@ public class CountryName {
 		for (String string1 : temp) {
 			System.out.println(string1);
 		}
-		;
-
+		; 
+		
+		//Collections.sort(countryName,(t1,t2)-> t2.compareTo(t1));
+		
+		//countryName.forEach(y->System.out.println(y.toUpperCase()));
+	
 	}
 }

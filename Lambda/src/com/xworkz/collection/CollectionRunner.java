@@ -209,25 +209,23 @@ public class CollectionRunner {
 		countryName.add("Zambia");
 		countryName.add("Zimbabwe");
 
-		
-		Comparator<String> desc = (obj1,obj2)-> {
+		Comparator<String> desc = (obj1, obj2) -> {
 			return obj2.compareTo(obj1);
 		};
 		Collections.sort(countryName, desc);
 		System.err.println("Country Name in Desc order");
 
-
-		Predicate<String> predicate=(string) ->{
+		Predicate<String> predicate = (string) -> {
 			return string.endsWith("a");
 		};
-		List<String> temp=countryName.stream().filter(predicate).collect(Collectors.toList());
-		for(String string: temp) {
-		System.out.println(string);
-		};
+		List<String> temp = countryName.stream().filter(predicate).collect(Collectors.toList());
+		for (String string : temp) {
+			System.out.println(string);
+		}
+		;
 		System.out.println("***************************************");
-		
-		
-		List<String> pmNames= new LinkedList<String>();
+
+		List<String> pmNames = new LinkedList<String>();
 		pmNames.add("Jawahar Lal Nehru");
 		pmNames.add("Gulzarilal Nanda");
 		pmNames.add("Lal Bahadur Shastri");
@@ -243,7 +241,7 @@ public class CollectionRunner {
 		pmNames.add("Inder Kumar Gujral");
 		pmNames.add("Manmohan Singh");
 		pmNames.add("Narendra Modi");
-		
+
 		Comparator<String> desc1 = (obj1, obj2) -> {
 			return obj2.compareTo(obj1);
 		};
@@ -260,8 +258,7 @@ public class CollectionRunner {
 			System.out.println(string1);
 
 		}
-       
-       
+
 		List<String> padmashri = new LinkedList<String>();
 		padmashri.add("Gulfam Ahmed");
 		padmashri.add("P. Anitha ");
@@ -491,18 +488,19 @@ public class CollectionRunner {
 		padmashri.add("Dr. Romesh Tekchand");
 		padmashri.add("Prem Watsa");
 		padmashri.add(" Suresh ");
-		
-		Comparator<String> desc2 = (P1,P2) -> {
+
+		Comparator<String> desc2 = (P1, P2) -> {
 			return P2.compareTo(P1);
 		};
 
 		Collections.sort(padmashri, desc2);
 		System.err.println("PadmashriAwardees Name in Desc order");
 
-		for(String str : padmashri) {
+		for (String str : padmashri) {
 			System.out.println(str);
-		};	
-		
+		}
+		;
+
 		List<String> actorsName = new LinkedList<String>();
 		actorsName.add("Rajkumar");
 		actorsName.add("Vishnuvardhan");
@@ -554,7 +552,7 @@ public class CollectionRunner {
 		actorsName.add("Shraddha Srinath");
 		actorsName.add("Amy Jackson");
 		actorsName.add("Neha Malik");
-		
+
 		Comparator<String> desc3 = (obj1, obj2) -> {
 			return obj2.compareTo(obj1);
 		};
@@ -579,9 +577,7 @@ public class CollectionRunner {
 		for (String string1 : temp5) {
 			System.out.println(string1);
 		}
-	    
-		
-		
+
 		List<String> rcbPlayersName = new LinkedList<String>();
 		rcbPlayersName.add("Rahul Dravid");
 		rcbPlayersName.add("Bharath Chipli");
@@ -624,7 +620,7 @@ public class CollectionRunner {
 		rcbPlayersName.add("Wanindu Hasarangal ");
 		rcbPlayersName.add("Akash Deep ");
 		rcbPlayersName.add("George Garton");
-		
+
 		Comparator<String> desc5 = (rcb1, rcb2) -> {
 			return rcb2.compareTo(rcb1);
 		};
@@ -707,7 +703,6 @@ public class CollectionRunner {
 			System.out.println(ageDTO);
 		}
 
-		System.err.println(" ");
 		Predicate<Integer> predicate8 = p -> {
 			if (p > 25)
 				return true;
@@ -719,5 +714,4 @@ public class CollectionRunner {
 
 		}
 	}
-	}
-
+}
