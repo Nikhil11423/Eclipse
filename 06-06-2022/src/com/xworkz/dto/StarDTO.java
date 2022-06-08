@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -21,8 +21,8 @@ public class StarDTO implements Comparable<StarDTO>{
 	
 	@Override
 	public int compareTo(StarDTO o) {
-		if(o !=null) {
-		return 1;
+		if(o !=null && o.getName()!=null) {
+		return this.name.compareTo(o.getName());
 	}
 		throw new  IllegalArgumentException();
 	}

@@ -16,10 +16,12 @@ public class SkyWalkDTO implements Comparable<SkyWalkDTO> {
 
 	@Override
 	public int compareTo(SkyWalkDTO o) {
-		if (o != null && o.getName() != null) {
+		if(o!=null && o.getName()!=null) {
+			return this.name.compareTo(getName());
+			
 		}
-		return this.name.compareTo(o.getName());
-	}
+		throw new IllegalArgumentException();
+	} 
 
 	@Override
 	public boolean equals(Object obj) {

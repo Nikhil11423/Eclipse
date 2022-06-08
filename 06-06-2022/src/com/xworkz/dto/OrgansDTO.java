@@ -17,11 +17,12 @@ public class OrgansDTO implements Comparable<OrgansDTO> {
 
 	@Override
 	public int compareTo(OrgansDTO o) {
-		if (o != null) {
-			return -1;
+		if(o!=null && o.getName()!=null) {
+			return this.name.compareTo(getName());
+			
 		}
-		return 0;
-	}
+		throw new IllegalArgumentException();
+	} 
 
 	@Override
 	public boolean equals(Object obj) {
