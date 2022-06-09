@@ -19,7 +19,8 @@ public class PersonDTO implements Comparable<PersonDTO>{
 	@Override
 	public int compareTo(PersonDTO o) {
 	if(o!=null && o.getName()!=null) {
-		return o.getName().compareTo(this.name);
+		//return o.getName().compareTo(this.name);
+		return this.name.compareTo(o.getName());
 	}
 	else {
 		throw new IllegalArgumentException();

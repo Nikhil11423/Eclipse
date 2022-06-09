@@ -8,15 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
+
 import java.util.Set;
 import java.util.TreeMap;
 
 import com.xworkz.person.dto.AddressDTO;
 import com.xworkz.person.dto.PersonDTO;
 
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
 public class PaRunner {
 
 	public static void main(String[] args) {
@@ -215,14 +213,14 @@ public class PaRunner {
 
 		Map<PersonDTO, AddressDTO> map = new HashMap<PersonDTO, AddressDTO>();
 		map.put(person1, address1);
-		map.put(person2, address2);
-		map.put(person3, address3);
-		map.put(person4, address4);
-		map.put(person5, address5);
-		map.put(person6, address6);
-		map.put(person7, address7);
-		map.put(person8, address8);
-		map.put(person9, address9);
+		map.put(person2, address1);
+		map.put(person3, address1);
+		map.put(person4, address1);
+		map.put(person5, address1);
+		map.put(person6, address1);
+		map.put(person7, address1);
+		map.put(person8, address1);
+		map.put(person9, address1);
 		map.put(person10, address10);
 		map.put(person11, address11);
 		map.put(person12, address12);
@@ -275,59 +273,79 @@ public class PaRunner {
 		map.put(person59, address59);
 		map.put(person60, address60);
 		map.put(person61, address61);
-		map.put(person62, address62);
-		map.put(person63, address63);
-		map.put(person64, address64);
-		map.put(person65, address65);
-		map.put(person66, address66);
-		map.put(person67, address67);
-		map.put(person68, address68);
-		map.put(person69, address69);
-		map.put(person70, address70);
+		map.put(person62, address61);
+		map.put(person63, address61);
+		map.put(person64, address61);
+		map.put(person65, address61);
+		map.put(person66, address61);
+		map.put(person67, address61);
+		map.put(person68, address61);
+		map.put(person69, address61);
+		map.put(person70, address61);
 		map.put(person71, address71);
-		map.put(person72, address72);
-		map.put(person73, address73);
-		map.put(person74, address74);
-		map.put(person75, address75);
-		map.put(person76, address76);
-		map.put(person77, address77);
-		map.put(person78, address78);
-		map.put(person79, address79);
-		map.put(person80, address80);
+		map.put(person72, address71);
+		map.put(person73, address71);
+		map.put(person74, address71);
+		map.put(person75, address71);
+		map.put(person76, address71);
+		map.put(person77, address71);
+		map.put(person78, address71);
+		map.put(person79, address71);
+		map.put(person80, address71);
 		map.put(person81, address81);
-		map.put(person82, address82);
-		map.put(person83, address83);
-		map.put(person84, address84);
-		map.put(person85, address85);
-		map.put(person86, address86);
-		map.put(person87, address87);
+		map.put(person82, address81);
+		map.put(person83, address81);
+		map.put(person84, address81);
+		map.put(person85, address81);
+		map.put(person86, address81);
+		map.put(person87, address81);
 
 		System.out.println(map.size());
-		
-		System.out.println("*************************************************");
-		
-		Set<Map.Entry<PersonDTO,AddressDTO>> sort=map.entrySet();
-		sort.forEach(System.out::println);
-		
-		System.out.println("*************************************************");
 
-	    Collection<AddressDTO> add= map.values();
-	    add.stream().sorted().forEach(System.out::println);
-	    
-	    System.out.println("*************************************************");
-	    
-	    add.stream().filter(r -> r.getCity().contains(("Borgaon")))
-		.forEach(r -> System.out.println("ALL  NAMES " + r));
+		System.err.println("**************asc order persondto name***********************************");
 
-	    System.out.println("*************************************************");
-	     
-	   add.stream().filter(
-				e ->add.stream().anyMatch(f ->f.getStreet().equals("220/6") &&e.getDoorNo().equals(f.getDoorNo())))
-				.collect(Collectors.toList());
-		System.out.println(add);
-	
-	 
-		
+		TreeMap<PersonDTO, AddressDTO> sort = new TreeMap<PersonDTO, AddressDTO>(map);
+		sort.forEach((m1, m2) -> System.out.println(m1.getName() + " : " + m2.getCity()));
+
+		System.err.println("**************asc order address id***********************************");
+
+		TreeMap<PersonDTO, AddressDTO> sort1 = new TreeMap<PersonDTO, AddressDTO>(map);
+		sort1.forEach((m1, m2) -> System.out.println(m1.getId() + " : " + m2.getId()));
+
+		System.err.println("**********************Name and DoorNo*****************");
+
+		sort.entrySet().stream().sorted((m1, m2) -> {
+			AddressDTO dto1 = m1.getValue();
+			AddressDTO dto2 = m2.getValue();
+			return dto1.getId().compareTo(dto2.getId());
+		}).forEach(Entry -> {
+			PersonDTO p = Entry.getKey();
+			AddressDTO a = Entry.getValue();
+			System.out.println(p.getName() + " : " + a.getId());
+
+		});
+
+		System.err.println("********find person by name and email *******************");
+
+		map.entrySet().stream().filter(entry -> { 
+			PersonDTO pdo = entry.getKey();
+			if (pdo.getName().equalsIgnoreCase("Nikhil ") && pdo.getEmail().equalsIgnoreCase("nikhil3216@gmail.com")) {
+				return true;
+			}
+			return false;
+
+		}).forEach(entry -> System.out.println(entry.getKey().getName() +" : "+ entry.getKey().getEmail()));
+
+		System.err.println("********find address by street and doorNo *******************");
+
+		map.entrySet().stream().filter(entry -> {
+			AddressDTO ado = entry.getValue();
+			if (ado.getStreet().equalsIgnoreCase("Basannavar Galli") && ado.getDoorNo().equalsIgnoreCase("18/4f")) {
+				return true;
+			}
+			return false;
+			
+		}).forEach(entry -> System.out.println(entry.getValue().getStreet() + " : " + entry.getValue().getDoorNo()));
 
 	}
 

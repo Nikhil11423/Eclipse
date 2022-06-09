@@ -20,7 +20,7 @@ public class AddressDTO implements Comparable<AddressDTO>{
 		if(o!=null && o.getId()!=null) {
 			
 		}
-		return o.getId().compareTo( this.id);
+		return this.id.compareTo(o.getId() );
 	}
 	
 		

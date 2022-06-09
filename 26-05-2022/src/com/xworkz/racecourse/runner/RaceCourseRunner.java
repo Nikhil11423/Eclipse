@@ -78,7 +78,7 @@ public class RaceCourseRunner {
 		raceDTOs.stream().filter(s -> s.getName().contains("Karnataka"))
 				.forEach(s -> System.out.println("PLACE NAME " + s));
 
-		// System.err.println("****************Get Id***********************");
+		System.err.println("****************Get Id***********************");
 		raceDTOs.stream().filter(p -> p.getId() > 0).forEach(s -> System.out.println(s));
 
 		System.err.println("****************Get Max Values***********************");
