@@ -1,19 +1,22 @@
 package com.xworkz.jdbc.details;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.xworkz.jdbc.details.constants.JDBC;
+import static com.xworkz.jdbc.details.constants.JDBC.*;
 
 public class BharataRatnaAwardees {
 
 	public static void main(String[] args) {
-		
-	try(Connection connection = DriverManager.getConnection(JDBC.URL.getValue(),JDBC.USERNAME.getValue(),JDBC.SECRETS.getValue())){
-			
-	
+
+		try (Connection connection = DriverManager.getConnection(URL.getValue(), USERNAME.getValue(),
+				SECRETS.getValue())) {
+
+			System.out.println(connection);
+
 			PreparedStatement prepare = connection.prepareStatement(
 					"Insert Into BharataRatnaAwardees values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
 			prepare.setInt(1, 10);
@@ -51,15 +54,11 @@ public class BharataRatnaAwardees {
 			prepare.setString(33, "Padma Vibhusan");
 			int rowAffected = prepare.executeUpdate();
 			System.out.println(rowAffected);
-		
-		
-		
-		
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 	}
 
-	}
-
+}

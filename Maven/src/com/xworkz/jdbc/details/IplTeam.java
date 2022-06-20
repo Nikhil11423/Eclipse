@@ -5,13 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.xworkz.jdbc.details.constants.JDBC;
-
+import static com.xworkz.jdbc.details.constants.JDBC.*;
 public class IplTeam {
 
 	public static void main(String[] args) {
-		try (Connection connection = DriverManager.getConnection(JDBC.URL.getValue(), JDBC.USERNAME.getValue(),
-				JDBC.SECRETS.getValue())) {
+		try (Connection connection = DriverManager.getConnection(URL.getValue(), USERNAME.getValue(),
+				SECRETS.getValue())) {
 
 			System.out.println(connection);
 
@@ -71,8 +70,7 @@ public class IplTeam {
 			preparedStatement.setString(32, "harshad");
 			preparedStatement.setString(33, "kohli");
 
-			System.out.println(preparedStatement.toString());
-			preparedStatement.executeUpdate();
+		
 
 			int rowsAffected = preparedStatement.executeUpdate();
 			System.out.println(rowsAffected);
@@ -110,8 +108,7 @@ public class IplTeam {
 			preparedStatement2.setString(31, "Pollard");
 			preparedStatement2.setString(32, "Fabian Allen");
 			preparedStatement2.setString(33, "Rohit S");
-			System.out.println(preparedStatement2.toString());
-			preparedStatement2.executeUpdate();
+			
 
 			int rowsAffected1 = preparedStatement2.executeUpdate();
 			System.out.println(rowsAffected1);
@@ -149,8 +146,7 @@ public class IplTeam {
 			preparedStatement3.setString(31, "Andre Russel");
 			preparedStatement3.setString(32, "Sunil Narine");
 			preparedStatement3.setString(33, "Shreyas I");
-			System.out.println(preparedStatement3.toString());
-			preparedStatement3.executeUpdate();
+			
 			int rowsAffected2 = preparedStatement3.executeUpdate();
 			System.out.println(rowsAffected2);
 
@@ -187,8 +183,7 @@ public class IplTeam {
 			preparedStatement4.setString(31, "M S Dhoni");
 			preparedStatement4.setString(32, "Jadeja");
 			preparedStatement4.setString(33, "M S Dhoni");
-			System.out.println(preparedStatement4.toString());
-			preparedStatement4.executeUpdate();
+			
 
 			int rowsAffected3 = preparedStatement5.executeUpdate();
 			System.out.println(rowsAffected3);
@@ -226,8 +221,7 @@ public class IplTeam {
 			preparedStatement5.setString(31, "Davis Warner");
 			preparedStatement5.setString(32, "Mustafizur Rahman");
 			preparedStatement5.setString(33, "Rishabh pant");
-			System.out.println(preparedStatement5.toString());
-			preparedStatement5.executeUpdate();
+			
 
 			int rowsAffected4 = preparedStatement5.executeUpdate();
 			System.out.println(rowsAffected4);
@@ -266,8 +260,7 @@ public class IplTeam {
 			preparedStatement6.setString(31, "Jos Buttler");
 			preparedStatement6.setString(32, "chahal");
 			preparedStatement6.setString(33, "Jos Buttler");
-			System.out.println(preparedStatement6.toString());
-			preparedStatement6.executeUpdate();
+			
 
 			int rowsAffected5 = preparedStatement6.executeUpdate();
 			System.out.println(rowsAffected5);
@@ -305,8 +298,6 @@ public class IplTeam {
 			preparedStatement7.setString(31, "Rahul Tipathi");
 			preparedStatement7.setString(32, "Umran malik");
 			preparedStatement7.setString(33, "Rahul Tipathi");
-			System.out.println(preparedStatement7.toString());
-			preparedStatement7.executeUpdate();
 
 			int rowsAffected6 = preparedStatement7.executeUpdate();
 			System.out.println(rowsAffected6);
@@ -344,8 +335,6 @@ public class IplTeam {
 			preparedStatement8.setString(31, "Deepak Hooda");
 			preparedStatement8.setString(32, "Ravi Bishnoi");
 			preparedStatement8.setString(33, "K L Rahul");
-			System.out.println(preparedStatement8.toString());
-			preparedStatement8.executeUpdate();
 
 			int rowsAffected7 = preparedStatement8.executeUpdate();
 			System.out.println(rowsAffected7);
@@ -384,7 +373,6 @@ public class IplTeam {
 			preparedStatement9.setString(32, "Sandeep Sharma");
 			preparedStatement9.setString(33, "Manyak Agarwal");
 			System.out.println(preparedStatement9.toString());
-			preparedStatement9.executeUpdate();
 
 			int rowsAffected8 = preparedStatement9.executeUpdate();
 			System.out.println(rowsAffected8);
@@ -423,7 +411,6 @@ public class IplTeam {
 			preparedStatement10.setString(32, "Lockie Ferguson");
 			preparedStatement10.setString(33, "Hardik Pandya");
 			System.out.println(preparedStatement10.toString());
-			preparedStatement10.executeUpdate();
 
 			int rowsAffected9 = preparedStatement10.executeUpdate();
 			System.out.println(rowsAffected9);

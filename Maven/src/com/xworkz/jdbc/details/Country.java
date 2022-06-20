@@ -6,36 +6,28 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.xworkz.jdbc.details.constants.JDBC;
-
+import static com.xworkz.jdbc.details.constants.JDBC.*;
 public class Country {
 
 	public static void main(String[] args) {
 
-		try (Connection connection = DriverManager.getConnection(JDBC.URL.getValue(), JDBC.USERNAME.getValue(),
-				JDBC.SECRETS.getValue())) {
-
+		try (Connection connection = DriverManager.getConnection(URL.getValue(),USERNAME.getValue(),
+				SECRETS.getValue())) {
+            System.out.println(connection);
+            
 			String ac = "insert into Country values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			String ac1 = "insert into Country values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			String ac2 = "insert into Country values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			String ac3 = "insert into Country values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			String ac4 = "insert into Country values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			String ac5 = "insert into Country values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			String ac6 = "insert into Country values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			String ac7 = "insert into Country values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			String ac8 = "insert into Country values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
+			
 			
 
 			PreparedStatement pre = connection.prepareStatement(ac);
-			PreparedStatement pre1 = connection.prepareStatement(ac1);
-			PreparedStatement pre2 = connection.prepareStatement(ac2);
-			PreparedStatement pre3 = connection.prepareStatement(ac3);
-			PreparedStatement pre4 = connection.prepareStatement(ac4);
-			PreparedStatement pre5 = connection.prepareStatement(ac5);
-			PreparedStatement pre6 = connection.prepareStatement(ac6);
-			PreparedStatement pre7 = connection.prepareStatement(ac7);
-			PreparedStatement pre8 = connection.prepareStatement(ac8);
+			PreparedStatement pre1 = connection.prepareStatement(ac);
+			PreparedStatement pre2 = connection.prepareStatement(ac);
+			PreparedStatement pre3 = connection.prepareStatement(ac);
+			PreparedStatement pre4 = connection.prepareStatement(ac);
+			PreparedStatement pre5 = connection.prepareStatement(ac);
+			PreparedStatement pre6 = connection.prepareStatement(ac);
+			PreparedStatement pre7 = connection.prepareStatement(ac);
+			PreparedStatement pre8 = connection.prepareStatement(ac);
 
 
 
@@ -73,8 +65,8 @@ public class Country {
 			pre.setInt(31, 1245);
 			pre.setInt(32, 3);
 			pre.setInt(33, 43);
-			System.out.println(pre.toString());
-			pre.executeUpdate();
+			int r=pre4.executeUpdate();
+			System.out.println(r);
 			
 			
 			pre1.setInt(1, 3);
@@ -146,8 +138,9 @@ public class Country {
 			pre2.setInt(31, 1245);
 			pre2.setInt(32, 3);
 			pre2.setInt(33, 43);
-			System.out.println(pre2.toString());
-			pre2.executeUpdate();
+			//System.out.println(pre2.toString());
+			int resu=pre2.executeUpdate();
+			System.out.println(resu);
 			
 			
 			pre3.setInt(1, 5);
@@ -183,8 +176,9 @@ public class Country {
 			pre3.setInt(31, 1245);
 			pre3.setInt(32, 3);
 			pre3.setInt(33, 43);
-			System.out.println(pre3.toString());
-			pre3.executeUpdate();
+			//System.out.println(pre3.toString());
+			int result=pre3.executeUpdate();
+			System.out.println(result);
 			
 			pre4.setInt(1, 6);
 			pre4.setString(2, "Brazil");
@@ -219,8 +213,9 @@ public class Country {
 			pre4.setInt(31, 1645);
 			pre4.setInt(32, 3);
 			pre4.setInt(33, 49);
-			System.out.println(pre4.toString());
-			pre4.executeUpdate();
+			//System.out.println(pre4.toString());
+			int result1=pre4.executeUpdate();
+			System.out.println(result1);
 			
 			pre5.setInt(1, 7);
 			pre5.setString(2, "Myanmar");
@@ -255,8 +250,9 @@ public class Country {
 			pre5.setInt(31, 1245);
 			pre5.setInt(32, 3);
 			pre5.setInt(33, 43);
-			System.out.println(pre5.toString());
-			pre5.executeUpdate();
+			//System.out.println(pre5.toString());
+			int result2=pre5.executeUpdate();
+			System.out.println(result2);
 			
 			pre6.setInt(1, 8);
 			pre6.setString(2, "China");
@@ -291,8 +287,9 @@ public class Country {
 			pre6.setInt(31, 1645);
 			pre6.setInt(32, 3);
 			pre6.setInt(33, 49);
-			System.out.println(pre6.toString());
-			pre6.executeUpdate();
+			//System.out.println(pre6.toString());
+			int res =pre6.executeUpdate();
+			System.out.println(res);
 			
 			pre7.setInt(1, 9);
 			pre7.setString(2, "South Korea");
@@ -327,8 +324,9 @@ public class Country {
 			pre7.setInt(31, 1245);
 			pre7.setInt(32, 3);
 			pre7.setInt(33, 43);
-			System.out.println(pre7.toString());
-			pre7.executeUpdate();
+			//System.out.println(pre7.toString());
+			int re =pre7.executeUpdate();
+			System.out.println(re);
 			
 			pre8.setInt(1, 10);
 			pre8.setString(2, "Thailand");
@@ -363,8 +361,9 @@ public class Country {
 			pre8.setInt(31, 1245);
 			pre8.setInt(32, 3);
 			pre8.setInt(33, 43);
-			System.out.println(pre8.toString());
-			pre8.executeUpdate();
+			//System.out.println(pre8.toString());
+			int ra=pre8.executeUpdate();
+			System.out.println(ra);
 
 			int rowschanged = pre.executeUpdate();
 			System.out.println(rowschanged);

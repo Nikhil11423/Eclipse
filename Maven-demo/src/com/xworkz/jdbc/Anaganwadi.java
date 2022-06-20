@@ -22,9 +22,11 @@ public class Anaganwadi {
 
 	    
 	    Statement stmt = connection.createStatement();
+	   
 	    int rows = stmt.executeUpdate(sql);
 	    int rows1 = stmt.executeUpdate(sql1);
 	    int rows2 = stmt.executeUpdate(sql2);
+	    
 	    System.out.println(sql);
 	    System.out.println(sql1);
 	    System.out.println(sql2);

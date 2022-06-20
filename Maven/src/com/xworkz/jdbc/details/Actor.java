@@ -6,34 +6,31 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.xworkz.jdbc.details.constants.JDBC;
+import static com.xworkz.jdbc.details.constants.JDBC.*;
 
 public class Actor {
 
 	public static void main(String[] args) {
 
-		String ac = "insert into Actor values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		String ac1 = "insert into Actor values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		String ac2 = "insert into Actor values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		String ac3 = "insert into Actor values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		try (Connection connection = DriverManager.getConnection(URL.getValue(), USERNAME.getValue(),
+				SECRETS.getValue())) {
+			System.out.println(connection);
 
-
-		try (Connection connection = DriverManager.getConnection(JDBC.URL.getValue(), JDBC.USERNAME.getValue(),
-				JDBC.SECRETS.getValue())) {
+			String ac = "insert into Actor values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String ac1 = "insert into Actor values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String ac2 = "insert into Actor values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String ac3 = "insert into Actor values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			PreparedStatement pre = connection.prepareStatement(ac);
 			PreparedStatement pre1 = connection.prepareStatement(ac1);
 			PreparedStatement pre2 = connection.prepareStatement(ac2);
 			PreparedStatement pre3 = connection.prepareStatement(ac3);
 
-
-
-
 			pre.setInt(1, 10);
 			pre.setString(2, "Nikhil");
-			pre.setString(3, "Kumar swami" );
+			pre.setString(3, "Kumar swami");
 			pre.setString(4, "Goudru");
-			pre.setDate(5, new Date(1994-8-2));
+			pre.setDate(5, new Date(1994 - 8 - 2));
 			pre.setInt(6, 70);
 			pre.setString(7, "parvtamma");
 			pre.setInt(8, 1954);
@@ -60,21 +57,17 @@ public class Actor {
 			pre.setString(29, "Rajkumara");
 			pre.setString(30, "Gandhada Gudi");
 			pre.setLong(31, 7056575652l);
-            pre.setString(32, "Gajnuru");
+			pre.setString(32, "Gajnuru");
 			pre.setString(33, "Rajani kanth");
-			
-			
-			System.out.println(pre.toString());
-			pre.executeUpdate();
 
 			int rowschanged = pre.executeUpdate();
 			System.out.println(rowschanged);
 
 			pre1.setInt(1, 3);
 			pre1.setString(2, "Vishnuvardhan");
-			pre1.setString(3, "H.L. Narayana Rao" );
+			pre1.setString(3, "H.L. Narayana Rao");
 			pre1.setString(4, "Kamakshamma");
-			pre1.setDate(5, new Date(1950-9-18));
+			pre1.setDate(5, new Date(1950 - 9 - 18));
 			pre1.setInt(6, 70);
 			pre1.setString(7, "Lakshmamma");
 			pre1.setInt(8, 1954);
@@ -101,20 +94,17 @@ public class Actor {
 			pre1.setString(29, "Rajkumara");
 			pre1.setString(30, "Muthina Haara");
 			pre1.setLong(31, 7056575652l);
-            pre1.setString(32, "Mysore");
+			pre1.setString(32, "Mysore");
 			pre1.setString(33, "Rajani kanth");
-			
-			System.out.println(pre1.toString());
-			pre1.executeUpdate();
 
 			int rows1 = pre1.executeUpdate();
 			System.out.println(rows1);
-			
+
 			pre2.setInt(1, 4);
 			pre2.setString(2, "Darshan");
-			pre2.setString(3, "Srinivas" );
+			pre2.setString(3, "Srinivas");
 			pre2.setString(4, "Tugudippa");
-			pre2.setDate(5, new Date(1977-2-16));
+			pre2.setDate(5, new Date(1977 - 2 - 16));
 			pre2.setInt(6, 45);
 			pre2.setString(7, "Meena");
 			pre2.setInt(8, 1954);
@@ -141,20 +131,17 @@ public class Actor {
 			pre2.setString(29, "Kurukshetra");
 			pre2.setString(30, "Navagraha");
 			pre2.setLong(31, 7056575652l);
-            pre2.setString(32, "ponnampet");
+			pre2.setString(32, "ponnampet");
 			pre2.setString(33, "Dr.rajkumar");
-			
-			System.out.println(pre2.toString());
-			pre2.executeUpdate();
 
 			int rowschanged2 = pre2.executeUpdate();
-			System.out.println(rowschanged2);	
+			System.out.println(rowschanged2);
 
 			pre3.setInt(1, 6);
 			pre3.setString(2, "Yash");
-			pre3.setString(3, "Arunkumar" );
+			pre3.setString(3, "Arunkumar");
 			pre3.setString(4, "Gowda");
-			pre3.setDate(5, new Date(1986-01-8));
+			pre3.setDate(5, new Date(1986 - 01 - 8));
 			pre3.setInt(6, 45);
 			pre3.setString(7, "Pushpa");
 			pre3.setInt(8, 1954);
@@ -181,15 +168,12 @@ public class Actor {
 			pre3.setString(29, "Kurukshetra");
 			pre3.setString(30, "Navagraha");
 			pre3.setLong(31, 7056575652l);
-            pre3.setString(32, "Boovanahalli, Hassan");
+			pre3.setString(32, "Boovanahalli, Hassan");
 			pre3.setString(33, "Dr.rajkumar");
-
-			System.out.println(pre3.toString());
-			pre3.executeUpdate();
 
 			int rowschanged3 = pre3.executeUpdate();
 			System.out.println(rowschanged3);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

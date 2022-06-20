@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Waterfall {
+public class WaterFall {
 
 	public static void main(String[] args) {
 		String url = "jdbc:mysql://localhost:3306/xworkz_btm_march";
