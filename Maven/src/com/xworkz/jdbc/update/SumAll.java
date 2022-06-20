@@ -12,7 +12,7 @@ import static com.xworkz.jdbc.details.constants.JDBC.*;
 public class SumAll {
 	
 	public static void main(String[] args) {
-	
+	System.out.println("hii");
 		String apart = "select sum(id) from Ipl";
 		
 		try (Connection connection = DriverManager.getConnection(URL.getValue(), USERNAME.getValue(),
