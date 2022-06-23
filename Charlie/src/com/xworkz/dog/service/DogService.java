@@ -5,6 +5,6 @@ import com.xworkz.dog.dto.DogDTO;
 public interface DogService {
 	
 
-	boolean validateAndSave(DogDTO dto);
+	public boolean validateAndSave(DogDTO dto);
 
 }
