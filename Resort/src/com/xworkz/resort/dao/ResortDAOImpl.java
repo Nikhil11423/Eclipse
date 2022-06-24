@@ -12,11 +12,89 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 
 import com.xworkz.resort.dto.ResortDTO;
 
 public class ResortDAOImpl implements ResortDAO {
+	
 
+	@Override
+	public void save(Collection<ResortDTO> dtos)  {
+		
+		Connection tempconnection=null;
+
+		String my ="insert into resort values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+		try(Connection connection=DriverManager.getConnection(URL.getValue(),USERNAME.getValue(),SECRETS.getValue()))
+		{
+            connection.setAutoCommit(false);
+			tempconnection=connection;
+
+			PreparedStatement preparedStatement=connection.prepareStatement(my);
+			Iterator<ResortDTO> itr=dtos.iterator(); 
+			while(itr.hasNext()) {
+				ResortDTO dto=itr.next();
+				preparedStatement.setInt(1,dto.getId());
+				preparedStatement.setString(2,dto.getName());
+				preparedStatement.setString(3,dto.getOwnerName());
+				preparedStatement.setString(4,dto.getLocation());
+				preparedStatement.setDouble(5,dto.getPrice());
+				preparedStatement.setDouble(6,dto.getRating());
+				preparedStatement.setDate(7,Date.valueOf(dto.getUpdateDate()));
+				preparedStatement.setString(8,dto.getCountry());
+				preparedStatement.setBoolean(9,dto.isPub());
+				preparedStatement.setBoolean(10,dto.isKidsClub());
+				preparedStatement.setTime(11,Time.valueOf(dto.getCheckInTime()));
+				preparedStatement.setTime(12,Time.valueOf(dto.getCheckOutTime()));
+				preparedStatement.setInt(13,dto.getNoOfCooks());
+				preparedStatement.setString(14,dto.getReceptionistName());
+				preparedStatement.setInt(15,dto.getCottages());
+				preparedStatement.setDate(16,Date.valueOf(dto.getUpdateDate()));
+				preparedStatement.setString(17,dto.getCreateBy());
+				preparedStatement.setString(18,dto.getUpdatedBy());
+				preparedStatement.setInt(19,dto.getSecurityGuards());
+				preparedStatement.setBoolean(20,dto.isSwimmingPool());
+				preparedStatement.setInt(21,dto.getCcTv());
+				preparedStatement.setInt(22,dto.getNoOfDogs());
+				preparedStatement.setString(23,dto.getCity());
+				preparedStatement.setString(24,dto.getTaluk());
+				preparedStatement.setString(25,dto.getDist());
+				preparedStatement.setString(26,dto.getState());
+				preparedStatement.setLong(27,dto.getContactNo());
+				preparedStatement.setString(28,dto.getEmailId());
+				preparedStatement.setString(29,dto.getOnlineBooking());
+				preparedStatement.setBoolean(30,dto.isAyurvedaCentre());
+				preparedStatement.setInt(31,dto.getNoRooms());
+				preparedStatement.setInt(32,dto.getTotalStaff());
+				preparedStatement.setBoolean(33,dto.isWifi());
+				preparedStatement.setBoolean(34,dto.isSafePractices());
+				preparedStatement.setString(35,dto.getManagerName());
+				preparedStatement.setInt(36,dto.getNoOfTree());
+				preparedStatement.setTime(37,Time.valueOf(dto.getBreakFast()));
+				preparedStatement.setBoolean(38,dto.isLucnch());
+				preparedStatement.setBoolean(39,dto.isDinner());
+				preparedStatement.setBoolean(40,dto.isGym());
+				preparedStatement.setBoolean(41,dto.isTrekking());
+				preparedStatement.setDouble(42,dto.getOneBedRoomPrice());
+				preparedStatement.setDouble(43,dto.getTwoBedRoomPrice());
+				int result=preparedStatement.executeUpdate();
+				System.out.println(result);
+			}
+			connection.commit();
+			}catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				tempconnection.rollback();
+				
+			} catch (SQLException e2) {
+				e.printStackTrace();
+			}
+			
+			}
+	}	
 	@Override
 	public boolean save(ResortDTO dto) {
 		String sql ="insert into resort values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -347,6 +425,7 @@ public class ResortDAOImpl implements ResortDAO {
 				return extracted(resultSet);
 							}
 
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -373,4 +452,6 @@ public class ResortDAOImpl implements ResortDAO {
 		return null;
 		
 	}
+
+		
 }

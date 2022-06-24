@@ -20,6 +20,15 @@ public class CoffeeRunner {
 		CoffeeDTO dto5 = new CoffeeDTO(5, "Cortado", 200.0, 500f, 4.3);
 		CoffeeDTO dto6 = new CoffeeDTO(3, "Cappuccino", 126.0, 250f, 4.8);
 		
+		
+		Set<CoffeeDTO> sto=new HashSet<CoffeeDTO>();
+		CoffeeDTO sto1=new CoffeeDTO(7,"kiran", 360.2, 200f, 5.0);
+		CoffeeDTO sto2=new CoffeeDTO(8, "Appi", 900d, 29f,2.0);
+		
+		sto.add(sto1);
+		sto.add(sto2);
+		sto.forEach(System.out::println);
+		
 		dto.add(dto1);
 		dto.add(dto2);
 		dto.add(dto3);

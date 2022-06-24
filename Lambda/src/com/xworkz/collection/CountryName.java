@@ -211,20 +211,22 @@ public class CountryName {
 			return obj2.compareTo(obj1);
 		};
 		Collections.sort(countryName, desc);
-		System.err.println("Country Name in Desc order");
-
+		//System.err.println("Country Name in Desc order");
 		Predicate<String> predicate = (string) -> {
 			return string.endsWith("a");
+			
 		};
+        System.err.println("******************************************");
+
 		List<String> temp = countryName.stream().filter(predicate).collect(Collectors.toList());
 		for (String string1 : temp) {
 			System.out.println(string1);
 		}
 		; 
 		
-		//Collections.sort(countryName,(t1,t2)-> t2.compareTo(t1));
+		Collections.sort(countryName,(t1,t2)-> t2.compareTo(t1));
 		
-		//countryName.forEach(y->System.out.println(y.toUpperCase()));
+		countryName.forEach(y->System.out.println(y.toUpperCase()));
 	
 	}
 }

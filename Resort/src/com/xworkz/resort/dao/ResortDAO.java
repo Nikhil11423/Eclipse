@@ -1,6 +1,7 @@
 package com.xworkz.resort.dao;
 
 import java.time.LocalTime;
+import java.util.Collection;
 
 import com.xworkz.resort.dto.ResortDTO;
 
@@ -32,6 +33,10 @@ public interface ResortDAO {
 	ResortDTO getByMaxPrice();
 	
 	ResortDTO getByMinPrice();
+
+	void save(Collection<ResortDTO> dtos);
+
+	//void save(Collection<ResortDTO> dtos);
 
 	
 

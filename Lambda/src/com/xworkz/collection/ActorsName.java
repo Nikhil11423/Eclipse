@@ -70,6 +70,8 @@ public class ActorsName {
 		};
 		Collections.sort(actorsName, desc);
 		System.err.println("Actors Name in Desc order");
+		
+		System.err.println("***********Naguvin Odeya Punith Rajkumar 1******************");
 
 		Predicate<String> predicate = (string) -> {
 			return string.contains("ma");
@@ -82,12 +84,12 @@ public class ActorsName {
 
 		System.err.println("***********Naguvin Odeya Punith Rajkumar******************");
 
-		Predicate<String> predicate1 = (string) -> {
+		/*Predicate<String> predicate1 = (string) -> {
 			return !string.contains("Ra");
 		};
 		List<String> temp1 = actorsName.stream().filter(predicate1).collect(Collectors.toList());
 		for (String string1 : temp1) {
 			System.out.println(string1);
-		}
+		}*/
 	}
 }
