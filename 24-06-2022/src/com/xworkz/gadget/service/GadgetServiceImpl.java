@@ -47,62 +47,62 @@ public class GadgetServiceImpl implements GadgetService {
 					&& type.length() < 30) {
 				System.out.println("type is valid");
 			} else {
-				System.out.println("name is invalid");
+				System.out.println("type is invalid");
 
 			}
 			if (price > 0) {
 				System.out.println("price is valid");
 			} else {
-				System.out.println("name is invalid");
+				System.out.println("price is invalid");
 
 			}
 			if (manufacturer != null && !manufacturer.matches(".*[0-9,!@#$%^&*()_+{}><.;,<>].*")
 					&& manufacturer.length() > 3 && manufacturer.length() < 30) {
 				System.out.println("manufacturer is valid");
 			} else {
-				System.out.println("name is invalid");
+				System.out.println("manufacturer is invalid");
 			}
 			if (manufactureDate != null) {
 				System.out.println("manufactureDate is valid");
 			} else {
-				System.out.println("name is invalid");
+				System.out.println("manufactureDate is invalid");
 			}
 			if (warrantyPeriod > 0) {
 				System.out.println("warrantyPeriod is valid");
 			} else {
-				System.out.println("name is invalid");
+				System.out.println("warrantyPeriod is invalid");
 			}
 			if (rating > 0 && rating < 6) {
 				System.out.println("rating is valid");
 			} else {
-				System.out.println("name is invalid");
+				System.out.println("rating is invalid");
 			}
 			if (serialNo > 0) {
 				System.out.println("serialNo is valid ");
 			} else {
-				System.out.println("name is invalid");
+				System.out.println("serialNo is invalid");
 			}
 			if (createdBy != null && !createdBy.matches(".*[0-9,!@#$%^&*()_+{}><.;,<>].*") && createdBy.length() > 3
 					&& createdBy.length() < 30) {
 				System.out.println("createdBy is valid");
 			} else {
-				System.out.println("name is invalid");
+				System.out.println("createdBy is invalid");
 			}
 			if (createdDate != null) {
 				System.out.println("createdDate is valid");
 			} else {
-				System.out.println("name is invalid");
+				System.out.println("createdDate is invalid");
 			}
 			if (updatedBy != null && !updatedBy.matches(".*[0-9,!@#$%^&*()_+{}><.;,<>].*") && updatedBy.length() > 3
 					&& updatedBy.length() < 30) {
 				System.out.println("updatedBy is valid");
 			} else {
-				System.out.println("name is invalid");
+				System.out.println("updatedBy is invalid");
 			}
 			if (updatedDate != null) {
 				System.out.println("updatedDate is valid");
 			} else {
-				System.out.println("name is invalid");
+				System.out.println("updatedDate is invalid");
 			}
 
 		}
