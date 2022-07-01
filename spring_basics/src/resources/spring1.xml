@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+	<bean class="com.xworkz.fw.bean.TentBean" id="tentBean1">
+		<constructor-arg value="ABC"></constructor-arg>
+	</bean>
+
+	<bean class="com.xworkz.fw.bean.TentBean" id="tentBean2">
+		<constructor-arg value="200"></constructor-arg>
+
+	</bean>
+
+<bean class="com.xworkz.fw.bean.TentBean" id="tentBean3">
+<constructor-arg value="Teppe"></constructor-arg>
+		<constructor-arg value="2200"></constructor-arg>
+	</bean>
+
+	<bean class="com.xworkz.fw.bean.TentBean" id="tentBean4">
+		<constructor-arg value="Teppe"></constructor-arg>
+		<constructor-arg value="Black"></constructor-arg>
+	</bean>
+
+	<bean class="com.xworkz.fw.bean.TentBean" id="tentBean5">
+		<constructor-arg value="1200"></constructor-arg>
+		<constructor-arg value="Red"></constructor-arg>
+	</bean>
+
+	<bean class="com.xworkz.fw.bean.TentBean" id="tentBean6">
+		<constructor-arg value="Bell tent"></constructor-arg>
+		<constructor-arg value="1000"></constructor-arg>
+		<constructor-arg value="black">
+		</constructor-arg>
+	</bean>
+
+	<bean class="com.xworkz.fw.bean.TentBean" id="tentBean7">
+		<constructor-arg value="Blue"></constructor-arg>
+		<constructor-arg value="Wigwam"></constructor-arg>
+		<constructor-arg value="2000">
+		</constructor-arg>
+	</bean>
+
+	<bean class="com.xworkz.fw.bean.TentBean" id="tentBean8">
+		<constructor-arg value="3500"></constructor-arg>
+		<constructor-arg value="Pink"></constructor-arg>
+		<constructor-arg value="Bivouac shelter"></constructor-arg>
+	</bean>
+	
+
+	<bean class="com.xworkz.fw.bean.VillageBean" id="villageBean1"></bean>
+
+	<bean class="com.xworkz.fw.bean.VillageBean" id="villageBean2">
+		<constructor-arg value="Borgaon"></constructor-arg>
+		<constructor-arg value="200"></constructor-arg>
+	</bean>
+
+	<bean class="com.xworkz.fw.bean.VillageBean" id="villageBean3">
+		<constructor-arg value="Borgaon"></constructor-arg>
+		<constructor-arg value="200"></constructor-arg>
+		<constructor-arg value="2000"></constructor-arg>
+	</bean>
+
+	<bean class="com.xworkz.fw.bean.VillageBean" id="villageBean4">
+		<constructor-arg value="Borgaon"></constructor-arg>
+		<constructor-arg value="200"></constructor-arg>
+		<constructor-arg value="2000"></constructor-arg>
+		<constructor-arg value="Nipani"></constructor-arg>
+	</bean>
+
+	<bean class="com.xworkz.fw.bean.VillageBean" id="villageBean5">
+		<constructor-arg value="Borgaon"></constructor-arg>
+		<constructor-arg value="200"></constructor-arg>
+		<constructor-arg value="2000"></constructor-arg>
+		<constructor-arg value="Nipani"></constructor-arg>
+		<constructor-arg value="Belagavi"></constructor-arg>
+	</bean>
+</beans>

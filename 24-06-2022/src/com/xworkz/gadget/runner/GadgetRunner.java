@@ -1,6 +1,7 @@
 package com.xworkz.gadget.runner;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.xworkz.gadget.dao.GadgetDAO;
 import com.xworkz.gadget.dao.GadgetDAOImpl;
@@ -35,6 +36,17 @@ public class GadgetRunner {
 
 		GadgetDTO id = serv.findById(1);
 		System.out.println(id);
+		
+		System.out.println("****************find***********************");
+
+		List <GadgetDTO> price= serv.findAllByPriceGreaterThan(70);
+		System.out.println(price);
+
+		
+		System.out.println("****************find***********************");
+
+		List <GadgetDTO> abc= serv.findAllByPriceGreaterThanAndManufacturer(60, "Dell");
+		System.out.println(abc);
 
 	}
 

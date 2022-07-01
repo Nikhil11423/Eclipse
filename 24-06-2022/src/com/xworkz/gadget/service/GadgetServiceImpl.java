@@ -1,6 +1,7 @@
 package com.xworkz.gadget.service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.xworkz.gadget.dao.GadgetDAO;
 import com.xworkz.gadget.dto.GadgetDTO;
@@ -39,6 +40,7 @@ public class GadgetServiceImpl implements GadgetService {
 			if (name != null && !name.matches(".*[0-9,!@#$%^&*()_+{}><.;,<>].*") && name.length() >= 2
 					&& name.length() < 30) {
 				System.out.println("name is valid");
+			
 			} else {
 				System.out.println("name is invalid");
 
@@ -120,4 +122,37 @@ public class GadgetServiceImpl implements GadgetService {
 
 		return this.dao.findById(id);
 	}
+
+	@Override
+	public List<GadgetDTO> findAllByPriceGreaterThan(double price) {
+		if (price > 0) {
+			System.out.println("price is valid");
+		} else {
+			System.out.println("price is invalid");
+
+		}
+		
+		
+		return this.dao.findAllByPriceGreaterThan(price);
+	}
+
+	@Override
+	public List<GadgetDTO> findAllByPriceGreaterThanAndManufacturer(double price, String manufacturer) {
+		if (price > 0) {
+			System.out.println("price is valid");
+		} else {
+			System.out.println("price is invalid");
+
+		}
+		if (manufacturer != null && !manufacturer.matches(".*[0-9,!@#$%^&*()_+{}><.;,<>].*")
+				&& manufacturer.length() > 3 && manufacturer.length() < 30) {
+			System.out.println("manufacturer is valid");
+		} else {
+			System.out.println("manufacturer is invalid");
+		}
+		return this.dao.findAllByPriceGreaterThanAndManufacturer(price, manufacturer);
+
+	}
+	
+	
 }

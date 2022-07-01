@@ -24,6 +24,7 @@ import com.xworkz.fw.bean.NoseBean;
 import com.xworkz.fw.bean.PancreasBean;
 import com.xworkz.fw.bean.StomachBean;
 import com.xworkz.fw.bean.TeethBean;
+import com.xworkz.fw.bean.TentBean;
 import com.xworkz.fw.bean.TongueBean;
 
 public class SpringBoot {
@@ -133,6 +134,8 @@ public class SpringBoot {
 		System.out.println(bean19);
 		bean19.grip();
 		System.err.println("*******************************");
+		
+		
 
 	}
 

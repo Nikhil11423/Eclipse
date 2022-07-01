@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.xworkz.gadget.constants.JDBC.*;
 import com.xworkz.gadget.dto.GadgetDTO;
@@ -86,4 +88,95 @@ public class GadgetDAOImpl implements GadgetDAO {
 
 		return null;
 	}
-}
+
+	@Override
+	public List<GadgetDTO> findAllByPriceGreaterThan(double price) {
+		String max = "select * from gadget where price >=? ";
+
+
+		try (Connection connection = DriverManager.getConnection(URL.getValue(), USERNAME.getValue(),
+				SECRETS.getValue())) {
+
+			PreparedStatement prepar = connection.prepareStatement(max);
+		    prepar.setDouble(1, price);
+
+			ResultSet result = prepar.executeQuery();
+			while (result.next()) {
+				GadgetDTO dto = new GadgetDTO();
+				dto.setId(result.getInt(1));
+				dto.setName(result.getString(2));
+				dto.setType(result.getString(3));
+				dto.setPrice(result.getDouble(4));
+				dto.setManufacturer(result.getString(5));
+				Date manDate = result.getDate(6);
+				dto.setManufactureDate(manDate.toLocalDate());
+				dto.setWarrantyPeriod(result.getInt(7));
+				dto.setRating(result.getDouble(8));
+				dto.setIsi(result.getBoolean(9));
+				dto.setSerialNo(result.getDouble(10));
+				dto.setCreatedBy(result.getString(11));
+				Date createdDate = result.getDate(12);
+				dto.setCreatedDate(createdDate.toLocalDate());
+				dto.setUpdatedBy(result.getString(13));
+				Date updatedDate = result.getDate(14);
+				dto.setCreatedDate(updatedDate.toLocalDate());
+				List<GadgetDTO> list=new ArrayList<GadgetDTO>();
+                list.add(dto);
+                return list;
+			
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+
+	@Override
+	public List<GadgetDTO> findAllByPriceGreaterThanAndManufacturer(double price, String Manufacturer) {
+		String sql = "SELECT*FROM gadget WHERE price>=? & Manufacturer>=?";
+
+		try (Connection connection = DriverManager.getConnection(URL.getValue(), USERNAME.getValue(),
+				SECRETS.getValue())) {
+
+			PreparedStatement prepar = connection.prepareStatement(sql);
+			prepar.setDouble(1, price);
+			prepar.setString(2, Manufacturer);
+
+			ResultSet result = prepar.executeQuery();
+			while (result.next()) {
+				GadgetDTO dto = new GadgetDTO();
+				dto.setId(result.getInt(1));
+				dto.setName(result.getString(2));
+				dto.setType(result.getString(3));
+				dto.setPrice(result.getDouble(4));
+				dto.setManufacturer(result.getString(5));
+				Date manDate = result.getDate(6);
+				dto.setManufactureDate(manDate.toLocalDate());
+				dto.setWarrantyPeriod(result.getInt(7));
+				dto.setRating(result.getDouble(8));
+				dto.setIsi(result.getBoolean(9));
+				dto.setSerialNo(result.getDouble(10));
+				dto.setCreatedBy(result.getString(11));
+				Date createdDate = result.getDate(12);
+				dto.setCreatedDate(createdDate.toLocalDate());
+				dto.setUpdatedBy(result.getString(13));
+				Date updatedDate = result.getDate(14);
+				dto.setCreatedDate(updatedDate.toLocalDate());
+
+				List<GadgetDTO> list=new ArrayList<GadgetDTO>();
+                list.add(dto);
+                return list;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	}
+

@@ -21,7 +21,7 @@ public class BikeRunner {
 	bike.stream().sorted().forEach(b ->System.out.println(b));
 
 
-	System.out.println("********Forword Direction**************");
+	/*System.out.println("********Forword Direction**************");
 	ListIterator<BikeDTO> itr = bike.listIterator();
 	while (itr.hasNext()) {
 		System.out.println(itr.next());
@@ -31,7 +31,7 @@ public class BikeRunner {
 	ListIterator<BikeDTO> litr = bike.listIterator(2);
 	while (litr.hasPrevious()) {
 		System.out.println(litr.previous());
-	}
+	}*/
 	}
 	
 	}
